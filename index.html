@@ -14,7 +14,7 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #222;
-      color: #fff;
+      color: #444; /* Changed text color to a dark-ish shade of gray */
       line-height: 1.6;
     }
 
@@ -27,72 +27,38 @@
       background-image: url('black_ops_2_background.jpg'); /* Add your background image here */
       background-size: cover;
       background-position: center;
-      color: #fff;
+      color: #fa8e00;
       text-align: center;
       padding: 20px;
-      filter: blur(15px);
-      backdrop-filter: blur(5px);
     }
 
     .main-section h1 {
-      font-size: 64px;
+      font-size: 48px;
       margin-bottom: 20px;
-      position: relative;
-      animation: slideInFromBottom 1s ease-out;
+      opacity: 0; /* Set initial opacity to 0 for animation */
+      animation: fadeInUp 1s 0.5s ease-out forwards; /* Use a delay of 0.5s for the heading */
     }
 
     .main-section p {
-      font-size: 24px;
+      font-size: 20px;
       max-width: 600px;
       margin: 0 auto;
-      position: relative;
-      animation: fadeIn 1s ease-out;
-    }
-
-    /* Text animation keyframes */
-    @keyframes slideInFromBottom {
-      0% {
-        bottom: -30px;
-        opacity: 0;
-      }
-      100% {
-        bottom: 0;
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    /* White text visibility in white backgrounds */
-    .main-section:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      mix-blend-mode: difference;
-      background-color: white;
+      opacity: 0; /* Set initial opacity to 0 for animation */
+      animation: fadeInUp 1s 1s ease-out forwards; /* Use a delay of 1s for the paragraph */
     }
 
     .cta-button {
       display: inline-block;
-      padding: 10px 30px;
+      padding: 12px 30px;
       font-size: 20px;
       background-color: #ff8000;
       color: #fff;
       text-decoration: none;
+      border: none;
       border-radius: 5px;
       margin-top: 20px;
       transition: background-color 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .cta-button:hover {
@@ -101,10 +67,13 @@
 
     /* Navbar styles */
     nav {
-      display: flex;
-      justify-content: center;
-      background-color: #ff8000;
+      background-color: transparent; /* Set navbar background to transparent */
       padding: 10px;
+      position: absolute;
+      top: 0; /* Position the navbar at the top left */
+      left: 0;
+      display: flex;
+      display: inline-block;
     }
 
     nav a {
@@ -113,6 +82,18 @@
       padding: 10px 20px;
       margin: 0 5px;
       font-weight: bold;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -136,4 +117,3 @@
   </footer>
 </body>
 </html>
-
